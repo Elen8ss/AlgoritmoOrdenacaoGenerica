@@ -1,6 +1,9 @@
 package AlgsSort;
 
-public class QuickSortGenerics <T extends Comparable<? super T>> implements StrategeySort<T> {
+public class QuickSortGenerics <T extends Comparable<? super T>> implements StrategeySort<T> { particiona(vet, inicio, fim);
+
+            quickSort(vet,  inicio, posicaoPivo - 1);
+            quickSort(vet,  posicaoPivo + 1, fim);
     
     @Override
     public void sort(T[] array) {
@@ -9,10 +12,7 @@ public class QuickSortGenerics <T extends Comparable<? super T>> implements Stra
 
     void quickSort(T []vet, int inicio, int fim) {
         if (inicio < fim) {
-            int posicaoPivo = particiona(vet, inicio, fim);
-
-            quickSort(vet,  inicio, posicaoPivo - 1);
-            quickSort(vet,  posicaoPivo + 1, fim);
+            int posicaoPivo =
         }
     }
 
