@@ -6,13 +6,13 @@ public enum TipoAlg {
     MERGE {
         @Override
         public <T> StrategeySort obterAlg() {
-            return new MergeSortGenerics<>();
+            return new MergeInsert<>();
         }
     },
-    QUICK {
+    QUICK  {
         @Override
         public <T> StrategeySort obterAlg(){
-            return new QuickSortGenerics<>();
+            return new QuickInsertSort<>();
         }
     },
     HEAP {
@@ -20,7 +20,8 @@ public enum TipoAlg {
         public <T> StrategeySort obterAlg(){
             return new HeapSortGenerics<>();
         }
-    };
+    }
+    ;
     // TREE {
     //     @Override
     //     public <T> StrategeySort obterAlg(){
