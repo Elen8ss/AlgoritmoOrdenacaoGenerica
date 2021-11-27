@@ -74,6 +74,12 @@ public enum TipoAlg {
         public <T> StrategeySort obterAlg(){
             return new TreeSortDecreasing<>();
         }
+    },
+    JAVAMETODO {
+        @Override
+        public <T> StrategeySort obterAlg(){
+            return new JavaMetodo<>();
+        }
     };
 
     public abstract <T> StrategeySort obterAlg();
