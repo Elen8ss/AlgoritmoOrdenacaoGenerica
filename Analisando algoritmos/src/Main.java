@@ -26,19 +26,20 @@ public class Main {
         // Criando o objeto context que se comunica com a StrategeySort(interface) para executar o algoritmo escolhido pelo TipoAlg(enum)
         Context ordenar = new Context();
         int i = 0;
-        tamanhoDoVetor = tamanhoVetor[validarValores(opTamanhoDoVetor, 3)];
+        tamanhoDoVetor = validarValores(opTamanhoDoVetor, 3);
         tipoDeVetor = validarValores(opTipoDeVetor, 3);
         int aquecimento = 0;
 
-        if (tipoDeVetor == 0) {
+        if (tamanhoDoVetor == 0) {
             aquecimento = 1000;
         }
-        if (tipoDeVetor == 1) {
+        if (tamanhoDoVetor == 1) {
             aquecimento = 50;
         }
-        if (tipoDeVetor == 0) {
+        if (tamanhoDoVetor == 2) {
             aquecimento = 5;
         }
+        tamanhoDoVetor = tamanhoVetor[tamanhoDoVetor];
 
         do {
             if (entradas[1] == 7 && entradas[0] == 0) {
@@ -75,7 +76,8 @@ public class Main {
                 ordenar.ordenarVet(arrayKeyStringValueDouble);
                 long endTime = System.nanoTime();
                 if (i > aquecimento) {
-                    System.out.println("Tempo de execução: " + ((endTime - starTime)) + " ns");
+                    System.out.println((endTime - starTime));
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)));//1000000) + " ms");
                 }
             }
             
@@ -91,7 +93,8 @@ public class Main {
                 ordenar.ordenarVet(arrayKeyDoubleValueString);
                 long endTime = System.nanoTime();
                 if (i > aquecimento) {
-                    System.out.println("Tempo de execução: " + ((endTime - starTime)) + " ns");
+                    System.out.println((endTime - starTime));
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)));//1000000) + " ms");
                 }
             }
             
@@ -107,12 +110,14 @@ public class Main {
                 ordenar.ordenarVet(arrayKeyDoubleValueIntegers);
                 long endTime = System.nanoTime();
                 if (i > aquecimento) {
-                    System.out.println("Tempo de execução: " + ((endTime - starTime)) + " ns");
+                    System.out.println((endTime - starTime));
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)));//1000000) + " ms");
                 }
             }
             existeVetor = true;           
-
+            System.out.println("\ni: " + i);
             if (i > aquecimento) {
+                
                 if (entradas[0] == 0) {
                     entradas[0] = 1;
                 } else {

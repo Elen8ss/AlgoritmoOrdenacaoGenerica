@@ -14,6 +14,7 @@ public class MergeInsertDecreasing <T extends Comparable<? super T>> implements 
         System.out.println("num de comparações Merge Insert Decrescente:" + numComparison);
         System.out.println("num de atribuições Merge Insert Decrescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
     
     // funcao MergerSort

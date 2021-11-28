@@ -15,6 +15,7 @@ public class MergeSortDecreasing <T extends Comparable<? super T>> implements St
         System.out.println("num de comparações Merge Sort Decrescente:" + numComparison);
         System.out.println("num de atribuições Merge Sort Decrescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
     
     // funcao MergerSort

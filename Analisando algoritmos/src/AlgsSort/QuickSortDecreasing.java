@@ -12,6 +12,7 @@ public class QuickSortDecreasing <T extends Comparable<? super T>> implements St
         System.out.println("num de comparações Quick Sort Decrescente:" + numComparison);
         System.out.println("num de atribuições Quick Sort Decrescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
 
     void quickSort(T []vet, int inicio, int fim) {

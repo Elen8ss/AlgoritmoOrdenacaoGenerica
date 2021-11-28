@@ -15,6 +15,7 @@ public class TreeSort <T extends Comparable<? super T>> implements StrategeySort
         System.out.println("num de comparações Treee Sort Crescente:" + numComparison);
         System.out.println("num de atribuições Tree Sort Crescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
     
     void treeSort(T array[]) { 

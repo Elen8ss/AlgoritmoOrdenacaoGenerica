@@ -11,6 +11,7 @@ public class HeapSort <T extends Comparable<? super T>> implements StrategeySort
         System.out.println("num de comparações Heap Sort Crescente:" + numComparison);
         System.out.println("num de atribuições Heap Sort Crescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
 
     void heapSort(T[] vet) {

@@ -12,6 +12,7 @@ public class QuickSort <T extends Comparable<? super T>> implements StrategeySor
         System.out.println("num de comparações Quick Sort Crescente:" + numComparison);
         System.out.println("num de atribuições Quick Sort Crescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
 
     void quickSort(T []vet, int inicio, int fim) {

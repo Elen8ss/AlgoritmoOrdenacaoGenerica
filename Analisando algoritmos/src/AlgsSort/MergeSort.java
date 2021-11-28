@@ -15,6 +15,8 @@ public class MergeSort <T extends Comparable<? super T>> implements StrategeySor
         System.out.println("num de comparações Merge Sort Crescente:" + numComparison);
         System.out.println("num de atribuições Merge Sort Crescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
+
     }
     
     // funcao MergerSort

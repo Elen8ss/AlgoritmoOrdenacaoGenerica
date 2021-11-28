@@ -13,6 +13,7 @@ public class QuickInsert <T extends Comparable<? super T>> implements StrategeyS
         System.out.println("num de comparações Quick Insert Crescente:" + numComparison);
         System.out.println("num de atribuições Quick Insert Crescente:" + numAssignments);
         System.out.println(" Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
 
     void quickSort(T []vet, int inicio, int fim) {

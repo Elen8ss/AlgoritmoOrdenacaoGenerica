@@ -11,6 +11,7 @@ public class HeapSortDecreasing <T extends Comparable<? super T>> implements Str
         System.out.println("num de comparações Heap Sort Decrescente:" + numComparison);
         System.out.println("num de atribuições Heap Sort Decrescente:" + numAssignments);
         System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.print(numComparison + " " + numAssignments+ " ");
     }
 
     void heapSort(T[] vet) {
