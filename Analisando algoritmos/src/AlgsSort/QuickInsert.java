@@ -3,6 +3,7 @@ package AlgsSort;
 public class QuickInsert <T extends Comparable<? super T>> implements StrategeySort<T> {
     private static int numComparison;
     private static int numAssignments;
+    public static int L = 7;
 
     @Override
     public void sort(T[] array) {
@@ -11,12 +12,12 @@ public class QuickInsert <T extends Comparable<? super T>> implements StrategeyS
         quickSort(array, 0, array.length-1);   
         System.out.println("num de comparações Quick Insert Crescente:" + numComparison);
         System.out.println("num de atribuições Quick Insert Crescente:" + numAssignments);
-        System.out.println("Total: " + (numAssignments + numComparison));
+        System.out.println(" Total: " + (numAssignments + numComparison));
     }
 
     void quickSort(T []vet, int inicio, int fim) {
         if (inicio < fim) {
-            if (fim  - inicio > 10) {
+            if ((fim  - inicio) + 1 > L) {
 
                 int posicaoPivo = particiona(vet, inicio, fim);
                 numAssignments++;
@@ -83,10 +84,12 @@ public class QuickInsert <T extends Comparable<? super T>> implements StrategeyS
                     array[j+1] = array[j]; 
                     j--;
                     numAssignments+=2;
+                    numComparison++;
                 } else {
+                    numComparison++;
                     break;
                 }
-                numComparison+=2;
+                numComparison++;
             }
             array[j+1] = aux; 
             numAssignments+=2;

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import CriarVetores.*;
@@ -6,7 +5,7 @@ import CriarVetores.*;
 
 public class Main {
     public static void main(String[] args) {
-        int op = 0;
+        int op = 1;
         int[] tamanhoVetor = {1000,100000,1000000};
         int tamanhoDoVetor = 0;
         int tipoDeVetor = 0;
@@ -20,46 +19,49 @@ public class Main {
         System.out.println("\n----------------------");
         System.out.println("Ordenação de vetores");
         System.out.println("----------------------");
-        
-        String[] opOrder = {"1 - Ordenar o vetor em ordem crecente","2 - Ordenar o vetor em ordem decrecente\n"};
-        String[] opAlg = {"\nEscolha o algoritmo para ordenar o vetor\n","1 - Merge Sort","2 - Merge Insert","3 - Quick Sort","4 - Quick Insert","5 - Heap Sort","6 - Tree Sort","7 - Método de ordenaço do java"};
+    
         String[] opTipoDeVetor = {"\nEscolha o tipo de vetor para ordenar","1- Key String - value Double","2- Key Double - value Integer","3- Key Double - value Integer"};
         String[] opTamanhoDoVetor = {"\nEscolha o tamanho do vetor","1-1000","2-100000","3-1000000"};
-        String[] opExisteVetor = {"\nEscolha uma opção","1-Continuar com o mesmo vetor","2-Criar outro vetor"};
         
         // Criando o objeto context que se comunica com a StrategeySort(interface) para executar o algoritmo escolhido pelo TipoAlg(enum)
         Context ordenar = new Context();
+        int i = 0;
+        tamanhoDoVetor = tamanhoVetor[validarValores(opTamanhoDoVetor, 3)];
+        tipoDeVetor = validarValores(opTipoDeVetor, 3);
+        int aquecimento = 0;
+
+        if (tipoDeVetor == 0) {
+            aquecimento = 1000;
+        }
+        if (tipoDeVetor == 1) {
+            aquecimento = 50;
+        }
+        if (tipoDeVetor == 0) {
+            aquecimento = 5;
+        }
 
         do {
+            if (entradas[1] == 7 && entradas[0] == 0) {
+                break;
+            }
             int order = entradas[0];//validarValores(opOrder, 2);
         
             int alg = entradas[1];//validarValores(opAlg, 7);
             alg = 2*alg+order;
             
-            if (existeVetor) {
-                if (entradas[0] == 9) {
-                    existeVetor = false; 
-                }
-                // if (validarValores(opExisteVetor, 2) == 1) {
-                //    existeVetor = false; 
-                // }
-            }
-            
-            if (!existeVetor) {
-                tamanhoDoVetor = tamanhoVetor[entradas[2]];
-                
-                tipoDeVetor = entradas[3];//validarValores(opTipoDeVetor, 3);
-            }
-
             
             // Cria o TipoAlg(enum) para escolher o algoritmo
-            TipoAlg tipoAlg = TipoAlg.values()[alg];
             // tipoAlg.obeterAlg() executa a função abstrata do tipo escolhido
+            TipoAlg tipoAlg = TipoAlg.values()[alg];
+            // Ordena o o tipo de vetor escolhido com a estratégia escolhida
             ordenar.trocarDeEstrategia(tipoAlg.obterAlg());
 
-            // Ordena o o tipo de vetor escolhido com a estratégia escolhida
-            System.out.println("\nTamanho entrada: "+ opTamanhoDoVetor[entradas[2]+1]);
-            System.out.println("Tipo de vetor " + opTipoDeVetor[entradas[3]+1]);
+            if (i > aquecimento) {
+                System.out.println("\nTamanho entrada: "+ opTamanhoDoVetor[entradas[2]+1]);
+                System.out.println("Tipo de vetor " + opTipoDeVetor[entradas[3]+1]);
+            }
+
+
             if (tipoDeVetor == 0) {
                 KeyStringValueDouble[] arrayKeyStringValueDouble = new KeyStringValueDouble[tamanhoDoVetor];
                 if (!existeVetor) {
@@ -68,9 +70,13 @@ public class Main {
                 } else {
                     arrayKeyStringValueDouble = copiaStringsValueDouble.clone();
                 }
-                // System.out.println("\n\nOrdenando Strings: " + Arrays.toString(arrayKeyStringValueDouble));
+                
+                long starTime = System.nanoTime();
                 ordenar.ordenarVet(arrayKeyStringValueDouble);
-                // System.out.println("\n\nOrdenando Strings: " + Arrays.toString(arrayKeyStringValueDouble));
+                long endTime = System.nanoTime();
+                if (i > aquecimento) {
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)) + " ns");
+                }
             }
             
             if (tipoDeVetor == 1) {
@@ -81,9 +87,12 @@ public class Main {
                 } else {
                     arrayKeyDoubleValueString = copiaDoubleValueString.clone();
                 }
-                // System.out.println("Ordenando Integers: " + Arrays.toString(arrayKeyDoubleValueString));
+                long starTime = System.nanoTime();
                 ordenar.ordenarVet(arrayKeyDoubleValueString);
-                // System.out.println("Ordenando Integers: " + Arrays.toString(arrayKeyDoubleValueString));
+                long endTime = System.nanoTime();
+                if (i > aquecimento) {
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)) + " ns");
+                }
             }
             
             if (tipoDeVetor == 2) {
@@ -94,23 +103,31 @@ public class Main {
                 } else {
                     arrayKeyDoubleValueIntegers = copiaDoubleValueInteger.clone();
                 }
-                // System.out.println("Ordenando Doubles: " + Arrays.toString(arrayKeyDoubleValueIntegers));
+                long starTime = System.nanoTime();
                 ordenar.ordenarVet(arrayKeyDoubleValueIntegers);
-                // System.out.println("Ordenando Doubles: " + Arrays.toString(arrayKeyDoubleValueIntegers));
+                long endTime = System.nanoTime();
+                if (i > aquecimento) {
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)) + " ns");
+                }
             }
             existeVetor = true;           
 
-            if (entradas[0] == 0) {
-                entradas[0] = 1;
+            if (i > aquecimento) {
+                if (entradas[0] == 0) {
+                    entradas[0] = 1;
+                } else {
+                    entradas[0] = 0;
+                    entradas[1]++;
+                }
+               System.out.println("\nSe deseja continuar digite um número maior que 0");
+                try {
+                    op = ler.nextInt();
+                } catch (InputMismatchException exception) {
+                    op = -1;
+                } 
+                i = 0;
             } else {
-                entradas[0] = 0;
-                entradas[1]++;
-            }
-            System.out.println("\nSe deseja continuar digite um número maior que 0");
-            try {
-                op = ler.nextInt();
-            } catch (InputMismatchException exception) {
-                op = -1;
+                i++;
             }
             
         } while (op > 0);

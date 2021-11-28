@@ -6,6 +6,7 @@ public class JavaMetodoDecreasing <T extends Comparable<? super T>> implements S
     
     @Override
     public void sort(T[] array) {
+        System.out.println("Java método crescente");
         Arrays.sort(array, Collections.reverseOrder());
     }
     

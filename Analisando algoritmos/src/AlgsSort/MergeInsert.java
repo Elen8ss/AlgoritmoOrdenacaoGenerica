@@ -5,6 +5,8 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
 
     private static int numComparison;
     private static int numAssignments;
+    private static int L = 5;
+    
     @Override
     public void sort(T[] array) {
         numComparison = 0; 
@@ -24,7 +26,7 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
             mergeInsertSort(vetor, auxiliar, inicio, meio); 
             mergeInsertSort(vetor, auxiliar, meio+1, fim); 
 	    
-            if (fim - inicio > 13) {
+            if ((fim - inicio) + 1 > L) {
                 intercalar(vetor, auxiliar, inicio, meio, fim);
             } else {
                 insertSort(vetor, inicio, fim);
@@ -98,10 +100,12 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
                     array[j+1] = array[j]; 
                     j--;
                     numAssignments+=2;
+                    numComparison++;
                 } else {
+                    numComparison++;
                     break;
                 }
-                numComparison+=2;
+                numComparison++;
             }
             array[j+1] = aux; 
             numAssignments+=2;

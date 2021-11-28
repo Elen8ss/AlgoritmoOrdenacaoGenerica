@@ -83,10 +83,12 @@ public class QuickInsertDecreasing <T extends Comparable<? super T>> implements 
                     array[j+1] = array[j]; 
                     j--;
                     numAssignments+=2;
+                    numComparison++;
                 } else {
+                    numComparison++;
                     break;
                 }
-                numComparison+=2;
+                numComparison++;
             }
             array[j+1] = aux; 
             numAssignments++;

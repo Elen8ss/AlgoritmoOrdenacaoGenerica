@@ -24,7 +24,7 @@ public class MergeInsertDecreasing <T extends Comparable<? super T>> implements 
             mergeInsertSort(vetor, auxiliar, inicio, meio); 
             mergeInsertSort(vetor, auxiliar, meio+1, fim); 
 	    
-            if (fim - inicio > 13) {
+            if ((fim - inicio) + 1 > 13) {
                 intercalar(vetor, auxiliar, inicio, meio, fim);
             } else {
                 insertSort(vetor, inicio, fim);
@@ -97,11 +97,12 @@ public class MergeInsertDecreasing <T extends Comparable<? super T>> implements 
                 if (array[j].compareTo(aux) < 0) {
                     array[j+1] = array[j]; 
                     j--;
-                    numAssignments+=2;
+                    numComparison++;
                 } else {
+                    numComparison++;
                     break;
                 }
-                numComparison+=2;
+                numComparison++;
             }
             array[j+1] = aux; 
             numAssignments+=2;
