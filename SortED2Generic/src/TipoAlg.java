@@ -3,31 +3,48 @@ import AlgsSort.*;
 // Com o uso do TipoAlg.values()[alg]; e retornado o tipo escolhido
 // Depois a função obterAlg() é utilizada para obter o objeto do algoritmo 
 public enum TipoAlg {
-    MERGE {
+    MERGEINSERT {
         @Override
         public <T> StrategeySort obterAlg() {
             return new MergeInsert<>();
         }
     },
-    QUICK  {
+    MERGEINSERTDECREASING {
         @Override
-        public <T> StrategeySort obterAlg(){
-            return new QuickInsertSort<>();
+        public <T> StrategeySort obterAlg() {
+            return new MergeInsertDecreasing<>();
         }
     },
-    HEAP {
+    QUICKINSERT  {
         @Override
         public <T> StrategeySort obterAlg(){
-            return new HeapSortGenerics<>();
+            return new QuickInsert<>();
         }
-    }
-    ;
-    // TREE {
-    //     @Override
-    //     public <T> StrategeySort obterAlg(){
-    //         return new TreeSortGenerics<>();
-    //     }
-    // };
+    },
+    QUICKINSERTDECREASING  {
+        @Override
+        public <T> StrategeySort obterAlg(){
+            return new QuickInsertDecreasing<>();
+        }
+    },
+    HEAPSORT {
+        @Override
+        public <T> StrategeySort obterAlg(){
+            return new HeapSort<>();
+        }
+    },
+    HEAPSORTDECREASING {
+        @Override
+        public <T> StrategeySort obterAlg(){
+            return new HeapSortDecreasing<>();
+        }
+    },
+    TREE {
+        @Override
+        public <T> StrategeySort obterAlg(){
+            return new TreeSort<>();
+        }
+    };
 
     public abstract <T> StrategeySort obterAlg();
 

@@ -1,7 +1,7 @@
 package AlgsSort;
 
 //classe generica que possui como parametro um elemento do tipo T
-public class MergeInsert <T extends Comparable<? super T>> implements StrategeySort<T>{
+public class MergeInsertDecreasing <T extends Comparable<? super T>> implements StrategeySort<T>{
 
     @Override
     public void sort(T[] array) {        
@@ -16,7 +16,7 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
             mergeInsertSort(vetor, auxiliar, inicio, meio); 
             mergeInsertSort(vetor, auxiliar, meio+1, fim); 
 	    
-            if ((fim - inicio) > 7) {
+            if ((fim - inicio) > 5) {
                 intercalar(vetor, auxiliar, inicio, meio, fim);
             } else {
                 insertSort(vetor, inicio, fim);
@@ -47,7 +47,7 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
             }
             
     
-            else if (auxiliar[esq].compareTo(auxiliar[dir]) < 0) { 
+            else if (auxiliar[esq].compareTo(auxiliar[dir]) > 0) { 
                 vetor[i] = auxiliar[esq++]; 
             }
             
@@ -64,7 +64,7 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
             aux = array[i]; 
             
 	        int j = i-1; 
-            while (j >= inicio && array[j].compareTo(aux) > 0){ 
+            while (j >= inicio && array[j].compareTo(aux) < 0){ 
                 array[j+1] = array[j]; 
                 j--;
             }

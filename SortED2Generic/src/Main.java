@@ -7,7 +7,7 @@ import CriarVetores.*;
 public class Main {
     public static void main(String[] args) {
         int op = 0;
-        int[] tamanhoVetor = {1000,100000,1000000};
+        int[] tamanhoVetor = {10,100000,1000000};
         int tamanhoDoVetor = 0;
         int tipoDeVetor = 0;
         KeyStringValueDouble[] copiaStringsValueDouble = {};
@@ -19,8 +19,8 @@ public class Main {
         System.out.println("Ordenação de vetores");
         System.out.println("----------------------");
         
-        // String[] opOrder = {"1 - Ordenar o vetor em ordem crecente","2 - Ordenar o vetor em ordem decrecente\n"};
-        String[] opAlg = {"\nEscolha o algoritmo para ordenar o vetor\n","1 - Merge Sort","2 - Merge Insert","3 - Quick Sort","4 - Tree Sort"};
+        String[] opOrder = {"1 - Ordenar o vetor em ordem crecente","2 - Ordenar o vetor em ordem decrecente\n"};
+        String[] opAlg = {"\nEscolha o algoritmo para ordenar o vetor\n","1 - Merge Insert","2 - Quick Sort","3 - Heap Sort","4 - Tree Sort"};
         String[] opTipoDeVetor = {"\nEscolha o tipo de vetor para ordenar","1- Key String - value Double","2- Key Double - value Integer","3- Key Double - value Integer"};
         String[] opTamanhoDoVetor = {"\nEscolha o tamanho do vetor","1-1000","2-100000","3-1000000"};
         String[] opExisteVetor = {"\nEscolha uma opção","1-Continuar com o mesmo vetor","2-Criar outro vetor"};
@@ -29,12 +29,14 @@ public class Main {
         Context ordenar = new Context();
 
         do {
-            // int order = validarValores(opOrder, 2);
+            // Passa uma String para validar valores com quantidade máximas de entradas
+            int order = validarValores(opOrder, 2);
+        
+            int alg = validarValores(opAlg, 4);
+            alg = 2*alg+order;
             
-            int alg = validarValores(opAlg, 5);
             
             if (existeVetor) {
-                
                 if (validarValores(opExisteVetor, 2) == 1) {
                    existeVetor = false; 
                 }
@@ -112,7 +114,7 @@ public class Main {
                 System.out.println(t);
             }
             opction = read.nextInt()-1;
-            while (opction >=quantidadeEntradas || opction < 0) {
+            while (opction >= quantidadeEntradas || opction < 0) {
                 System.out.println("Digite uma opção válida");
                 opction = read.nextInt()-1;
             }
