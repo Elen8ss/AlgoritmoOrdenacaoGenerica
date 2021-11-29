@@ -5,6 +5,8 @@ public class MergeInsertDecreasing <T extends Comparable<? super T>> implements 
 
     private static int numComparison;
     private static int numAssignments;
+    private static int L = 5;
+
     @Override
     public void sort(T[] array) {
         numComparison = 0; 
@@ -25,7 +27,7 @@ public class MergeInsertDecreasing <T extends Comparable<? super T>> implements 
             mergeInsertSort(vetor, auxiliar, inicio, meio); 
             mergeInsertSort(vetor, auxiliar, meio+1, fim); 
 	    
-            if ((fim - inicio) + 1 > 13) {
+            if ((fim - inicio) + 1 > L) {
                 intercalar(vetor, auxiliar, inicio, meio, fim);
             } else {
                 insertSort(vetor, inicio, fim);

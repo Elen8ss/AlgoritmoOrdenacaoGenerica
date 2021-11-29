@@ -3,6 +3,7 @@ package AlgsSort;
 public class QuickInsertDecreasing <T extends Comparable<? super T>> implements StrategeySort<T> {
     private static int numComparison;
     private static int numAssignments;
+    private static int L = 7;
 
     @Override
     public void sort(T[] array) {
@@ -17,7 +18,7 @@ public class QuickInsertDecreasing <T extends Comparable<? super T>> implements 
 
     void quickSort(T []vet, int inicio, int fim) {
         if (inicio < fim) {
-            if (fim  - inicio > 10) {
+            if ((fim  - inicio) + 1 > L) {
 
                 int posicaoPivo = particiona(vet, inicio, fim);
                 numAssignments++;

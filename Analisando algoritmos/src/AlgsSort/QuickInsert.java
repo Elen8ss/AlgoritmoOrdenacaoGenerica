@@ -3,7 +3,7 @@ package AlgsSort;
 public class QuickInsert <T extends Comparable<? super T>> implements StrategeySort<T> {
     private static int numComparison;
     private static int numAssignments;
-    public static int L = 7;
+    private static int L = 7;
 
     @Override
     public void sort(T[] array) {

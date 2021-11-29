@@ -10,7 +10,7 @@ public class Main {
         int tamanhoDoVetor = 0;
         int tipoDeVetor = 0;
         // Vetor com valores para escolhas do algoritmo
-        int[] entradas = {0,0,0,0};
+        int[] entradas = {0,1,0,0};
         KeyStringValueDouble[] copiaStringsValueDouble = {};
         KeyDoubleValueString[] copiaDoubleValueString = {};
         KeyDoubleValueInteger[] copiaDoubleValueInteger = {};
@@ -20,13 +20,14 @@ public class Main {
         System.out.println("Ordenação de vetores");
         System.out.println("----------------------");
     
-        String[] opTipoDeVetor = {"\nEscolha o tipo de vetor para ordenar","1- Key String - value Double","2- Key Double - value Integer","3- Key Double - value Integer"};
+        String[] opTipoDeVetor = {"\nEscolha o tipo de vetor para ordenar","1- Key String - value Double","2- Key Double - value String","3- Key Double - value Integer"};
         String[] opTamanhoDoVetor = {"\nEscolha o tamanho do vetor","1-1000","2-100000","3-1000000"};
         
         // Criando o objeto context que se comunica com a StrategeySort(interface) para executar o algoritmo escolhido pelo TipoAlg(enum)
         Context ordenar = new Context();
         int i = 0;
         tamanhoDoVetor = validarValores(opTamanhoDoVetor, 3);
+        int vetTipo = tamanhoDoVetor;
         tipoDeVetor = validarValores(opTipoDeVetor, 3);
         int aquecimento = 0;
 
@@ -58,8 +59,8 @@ public class Main {
             ordenar.trocarDeEstrategia(tipoAlg.obterAlg());
 
             if (i > aquecimento) {
-                System.out.println("\nTamanho entrada: "+ opTamanhoDoVetor[entradas[2]+1]);
-                System.out.println("Tipo de vetor " + opTipoDeVetor[entradas[3]+1]);
+                System.out.println("\nTamanho entrada: "+ opTamanhoDoVetor[vetTipo]);
+                System.out.println("Tipo de vetor " + opTipoDeVetor[tipoDeVetor]);
             }
 
 
@@ -77,7 +78,7 @@ public class Main {
                 long endTime = System.nanoTime();
                 if (i > aquecimento) {
                     System.out.println((endTime - starTime));
-                    System.out.println("Tempo de execução: " + ((endTime - starTime)));//1000000) + " ms");
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)/1000000) + " ms");
                 }
             }
             
@@ -94,7 +95,7 @@ public class Main {
                 long endTime = System.nanoTime();
                 if (i > aquecimento) {
                     System.out.println((endTime - starTime));
-                    System.out.println("Tempo de execução: " + ((endTime - starTime)));//1000000) + " ms");
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)/1000000) + " ms");
                 }
             }
             
@@ -111,7 +112,7 @@ public class Main {
                 long endTime = System.nanoTime();
                 if (i > aquecimento) {
                     System.out.println((endTime - starTime));
-                    System.out.println("Tempo de execução: " + ((endTime - starTime)));//1000000) + " ms");
+                    System.out.println("Tempo de execução: " + ((endTime - starTime)/1000000) + " ms");
                 }
             }
             existeVetor = true;           
